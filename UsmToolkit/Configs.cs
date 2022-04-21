@@ -7,9 +7,4 @@
         public string OutputFormat { get; set; }
     }
 
-    public class DepsConfig
-    {
-        public string Vgmstream { get; set; }
-        public string FFmpeg { get; set; }
-    }
 }

@@ -144,7 +144,6 @@ namespace VGMToolbox.format
             string sourceFileName;
             string workingFile;
             string fileExtension;
-            string destinationFileName;
 
             foreach (uint streamId in outputFiles.Keys)
             {
@@ -210,16 +209,6 @@ namespace VGMToolbox.format
                 File.Copy(workingFile, sourceFileName, true);
                 File.Delete(workingFile);
 
-                workingFile = FileUtil.RemoveChunkFromFile(sourceFileName, footerOffset, footerSize);
-                destinationFileName = Path.ChangeExtension(sourceFileName, fileExtension);
-                destinationFileName = destinationFileName.Substring(0, destinationFileName.LastIndexOf("_"))+fileExtension;
-                File.Copy(workingFile, destinationFileName, true);                
-                File.Delete(workingFile);
-
-                if ((sourceFileName != destinationFileName) && (File.Exists(sourceFileName)))
-                {
-                    File.Delete(sourceFileName);
-                }
             }
         }
     }

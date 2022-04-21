@@ -13,25 +13,15 @@ After that, it's as easy as it can get.
 UsmToolkit extract <file/folder>
 ```
 
-### Converting
-```
-UsmToolkit convert <file/folder>
-```
+## Linux Support
 
-For more informations run `UsmToolkit extract -h` and `UsmToolkit convert -h`.
+I've made some light modifications to prevent usmtoolkit from merging multiple adx files and enable .NET Core 6.0 Linux support.
 
-## Custom conversion parameter
+## Destiny
 
-You should find `config.json` in the folder of the executable. With it, you can completly customize how the extracted file is processed by ffmpeg.
-The default configuration ships as follows:
-
-* Video: Will be copied
-* Audio: Re-encoded as AC3 at 640kb/s. If the file has 6 channels, they will be merged into stereo
-    * Left channel: CH1, CH3, CH5 50% volume, CH6
-    * Right channel: CH2, CH4, CH5 50% volume, CH6
-* Output is a MP4 file
-
-You can change these settings to your likings, it's standard ffmpeg syntax.
+In order to use this with Destiny, you should convert the adx files to wav using vgmstream-cli before merging using FFMpeg.
+You may be able to get away with not doing that, but it seems like the background music adx files are not recognised correctly  
+by FFMpeg.
 
 ## License
 
